@@ -3,7 +3,6 @@ package task.multiprocesschatgame;
 
 
 import task.multiprocesschatgame.data.Player;
-import task.multiprocesschatgame.factory.PlayerFactory;
 import task.multiprocesschatgame.service.ChatService;
 
 /**
@@ -25,12 +24,11 @@ public class Chat {
      * @param message message to be sent
      */
     public static void runInDifferentProcesses(String player1Name, String Player2Name, String message) {
-    	PlayerFactory playerService = PlayerFactory.getInstance();
     	
     	ChatService chatRoom = new ChatService();
     	
-        Player initiator = playerService.createPlayer(player1Name, message, true);
-        Player receiver = playerService.createPlayer(Player2Name, message, false);
+        Player initiator = new Player(player1Name, message, true);
+        Player receiver = new Player(Player2Name, message, false);
         
         initiator.registerToChatRoom(chatRoom);
         receiver.registerToChatRoom(chatRoom);

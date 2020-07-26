@@ -2,7 +2,6 @@
 
 package task.singleprocesschatgame;
 
-import task.singleprocesschatgame.factory.PlayerFactory;
 import task.singleprocesschatgame.model.Player;
 import task.singleprocesschatgame.service.ChatService;
 
@@ -25,9 +24,8 @@ public class Chat {
      */
     public static void runInSameProcess(String player1Name, String Player2Name, String message) {
     	
-    	PlayerFactory playerFactory = PlayerFactory.getInstance();
-        Player initiator = playerFactory.createPlayer(player1Name);
-        Player receiver = playerFactory.createPlayer(Player2Name);
+        Player initiator = new Player(player1Name);
+        Player receiver = new Player(Player2Name);
         
         ChatService chatRoom = new ChatService();
         

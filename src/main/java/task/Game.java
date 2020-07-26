@@ -8,8 +8,10 @@ import static task.concurrentchatgame.Chat.runInDifferentProcesses;
 public class Game {
 
     public static void main(String... args) {
-    	runInSameProcess();
-    	runInDifferentProcesses();
-
+    	if ("sameprocess".equals(args[0])) {
+    		runInSameProcess(args[1], args[2], args[3]);
+		} else {
+			runInDifferentProcesses();
+		}
     }
 }

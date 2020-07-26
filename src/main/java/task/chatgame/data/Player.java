@@ -1,6 +1,6 @@
 /* GaripT created on 26.07.2020 */
 
-package task.chatgame;
+package task.chatgame.data;
 
 
 import static java.lang.System.out;
@@ -43,5 +43,10 @@ public final class Player {
         messageCount++;
         if (messageCount <= 10)
             sendMessage(message + " " + messageCount, from);
+    }
+    
+    @Override
+    public String toString() {
+        return name;
     }
 }

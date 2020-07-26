@@ -2,14 +2,26 @@
 
 package task.chatgame;
 
+import task.chatgame.data.Player;
+import task.chatgame.service.ChatService;
+import task.chatgame.service.PlayerService;
+
 public class Chat {
     private Chat() {
     }
 
-    public static void runInSameProcess() {
-    	System.out.println("Chat in same process started...");
-        Player initiator = new Player("initiator");
-        Player receiver = new Player("receiver");
-        initiator.sendMessage("hey", receiver);
+    public static void runInSameProcess(String player1Name, String Player2Name, String message) {
+    	
+        PlayerService playerService = PlayerService.getInstance();
+        Player initiator = playerService.createPlayer(player1Name);
+        Player receiver = playerService.createPlayer(Player2Name);
+        
+        ChatService chatRoom = new ChatService();
+        chatRoom.registerPlayer(initiator);
+        chatRoom.registerPlayer(receiver);
+        
+        chatRoom.startChat(message);
+        
+        
     }
 }

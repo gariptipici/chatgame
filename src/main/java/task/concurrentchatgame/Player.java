@@ -39,7 +39,7 @@ public final class Player implements Runnable {
         }
     }
 
-    protected void send(String message) {
+    private void send(String message) {
         String reply = message + " " + messageCount;
         try {
             // Puts message to ArrayBlockingQueue, waits if it is full
@@ -53,7 +53,7 @@ public final class Player implements Runnable {
      * gets message from the ArrayBlockingQueue
      * @return returns message from queue
      */
-    protected String receive() {
+    private String receive() {
         try {
             // Gets message from ArrayBlockingQueue, waits if queue is empty
             String message = received.take();

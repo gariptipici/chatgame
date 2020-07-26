@@ -3,13 +3,29 @@
 package task.multiprocesschatgame.service;
 
 
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
 import task.multiprocesschatgame.data.Player;
 
+/**
+ * 
+ * @author GaripT
+ * Starts chat process also holds the inbox and outbox
+ */
 public class ChatService {
 	
-	Player initiator; 
-	Player receiver;
+	private Player initiator; 
+	private Player receiver;
 	
+	// Used 1 item-sized ArrayBlockingQueues to hold sent and received messages considering thread-safety
+    private BlockingQueue<String> sent = new ArrayBlockingQueue<>(1);
+    private BlockingQueue<String> received = new ArrayBlockingQueue<>(1);
+
+	/**
+	 * Chat process is started
+	 * @param message
+	 */
 	public void startChat(String message) {
 		if(initiator == null || receiver == null) {
 			System.out.println("Not enough player registered to chat...");
@@ -37,4 +53,14 @@ public class ChatService {
 	public void setReceiver(Player receiver) {
 		this.receiver = receiver;
 	}
+
+	public BlockingQueue<String> getSent() {
+		return sent;
+	}
+
+	public BlockingQueue<String> getReceived() {
+		return received;
+	}
+	
+	
 }

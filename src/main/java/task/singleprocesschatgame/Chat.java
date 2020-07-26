@@ -6,10 +6,23 @@ import task.singleprocesschatgame.factory.PlayerFactory;
 import task.singleprocesschatgame.model.Player;
 import task.singleprocesschatgame.service.ChatService;
 
+/**
+ * 
+ * @author GaripT
+ * Main class of chat from same process task
+ *
+ */
 public class Chat {
     private Chat() {
     }
 
+    /**
+     * Main method of chat from same process task
+     * 
+     * @param player1Name name of first player
+     * @param Player2Name name of second player
+     * @param message message to be sent
+     */
     public static void runInSameProcess(String player1Name, String Player2Name, String message) {
     	
     	PlayerFactory playerFactory = PlayerFactory.getInstance();

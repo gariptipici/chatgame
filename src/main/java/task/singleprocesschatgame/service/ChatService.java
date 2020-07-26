@@ -9,6 +9,10 @@ public class ChatService {
 	private Player initiator; 
 	private Player receiver;
 	
+	/**
+	 * Chat process is started
+	 * @param message
+	 */
 	public void startChat(String message) {
 		if(initiator == null || receiver == null) {
 			System.out.println("Not enough players registered to chat...");

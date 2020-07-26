@@ -2,10 +2,16 @@
 
 package task.multiprocesschatgame.factory;
 
-import java.util.concurrent.BlockingQueue;
 
 import task.multiprocesschatgame.data.Player;
 
+/**
+ * 
+ * @author GaripT
+ * Creates players
+ * Applied factory design pattern
+ *
+ */
 public class PlayerFactory {
 	private static PlayerFactory instance;
 	
@@ -19,8 +25,8 @@ public class PlayerFactory {
 		return instance;
 	}
 	
-	public Player createPlayer(String name, String message, Boolean initiator, BlockingQueue<String> sent, BlockingQueue<String> received) {
+	public Player createPlayer(String name, String message, Boolean initiator) {
 		System.out.println("Player " + name + " is created...");
-		return new Player(name, message, initiator, sent, received);
+		return new Player(name, message, initiator);
 	}
 }

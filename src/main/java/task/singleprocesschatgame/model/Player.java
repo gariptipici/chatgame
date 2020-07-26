@@ -8,8 +8,8 @@ import static java.lang.System.out;
 import task.singleprocesschatgame.service.ChatService;
 
 /**
- * @author GaripT
- * receives and sends messages via ChatService
+ * @author GaripT receives and sends messages if instance is initiator, it also
+ *         initiates the messaging process
  */
 public final class Player {
 

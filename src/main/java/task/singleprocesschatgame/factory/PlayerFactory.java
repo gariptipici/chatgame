@@ -4,6 +4,13 @@ package task.singleprocesschatgame.factory;
 
 import task.singleprocesschatgame.model.Player;
 
+/**
+ * 
+ * @author GaripT
+ * Creates players
+ * Applied factory design pattern
+ *
+ */
 public class PlayerFactory {
 	private static PlayerFactory instance;
 	

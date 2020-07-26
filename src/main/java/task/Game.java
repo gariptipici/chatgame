@@ -4,7 +4,12 @@ package task;
 import static task.multiprocesschatgame.Chat.runInDifferentProcesses;
 import static task.singleprocesschatgame.Chat.runInSameProcess;
 
-
+/**
+ * 
+ * @author GaripT
+ * Main class of all tasks
+ *
+ */
 public class Game {
 
     public static void main(String... args) {

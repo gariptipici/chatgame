@@ -1,10 +1,10 @@
 /* GaripT created on 26.07.2020 */
 
-package task.chatgame;
+package task.singleprocesschatgame;
 
-import task.chatgame.data.Player;
-import task.chatgame.service.ChatService;
-import task.chatgame.service.PlayerService;
+import task.singleprocesschatgame.data.Player;
+import task.singleprocesschatgame.service.ChatService;
+import task.singleprocesschatgame.service.PlayerService;
 
 public class Chat {
     private Chat() {

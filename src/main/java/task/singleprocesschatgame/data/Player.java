@@ -1,6 +1,6 @@
 /* GaripT created on 26.07.2020 */
 
-package task.chatgame.data;
+package task.singleprocesschatgame.data;
 
 
 import static java.lang.System.out;

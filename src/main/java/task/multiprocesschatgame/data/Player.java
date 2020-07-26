@@ -1,5 +1,5 @@
 /* GaripT created on 26.07.2020 */
-package task.concurrentchatgame;
+package task.multiprocesschatgame.data;
 
 import java.util.concurrent.BlockingQueue;
 

@@ -1,8 +1,8 @@
 /* GaripT created on 26.07.2020 */
 
-package task.chatgame.service;
+package task.singleprocesschatgame.service;
 
-import task.chatgame.data.Player;
+import task.singleprocesschatgame.data.Player;
 
 public class PlayerService {
 	private static PlayerService service;

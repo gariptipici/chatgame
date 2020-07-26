@@ -9,7 +9,7 @@ import task.singleprocesschatgame.service.ChatService;
 
 /**
  * @author GaripT
- * receives and sends messages
+ * receives and sends messages via ChatService
  */
 public final class Player {
 
@@ -24,6 +24,7 @@ public final class Player {
     /**
      * @param message message to be sent
      * @param to receiver instance
+     * @param service chatroom to send message
      *
      * Here I applied a recursive strategy for messaging process.
      * sendMessage method calls receiveMessage method of receiver instance.
@@ -31,7 +32,6 @@ public final class Player {
     public void sendMessage(String message, Player to, ChatService service) {
         out.println(this.name + ": sent message '" + message + "'");
         service.deliver(message, this, to);
-        //to.receiveMessage(message, this);
     }
 
     /**
@@ -40,6 +40,7 @@ public final class Player {
      *
      * @param message to be received
      * @param from sender instance
+     * @param service chatroom to send message
      */
     public void receiveMessage(String message, Player from, ChatService service) {
         out.println(this.name + ": received message '" + message + "'");
@@ -55,9 +56,7 @@ public final class Player {
  		} else if(service.getReceiver() == null) {
 			service.setReceiver(this);
 			System.out.println("Player " + this + " registered...");
-		} 
-			
-		
+		} 		
 	}
     
     @Override

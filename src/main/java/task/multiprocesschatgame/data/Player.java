@@ -3,6 +3,8 @@ package task.multiprocesschatgame.data;
 
 import java.util.concurrent.BlockingQueue;
 
+import task.multiprocesschatgame.service.ChatService;
+
 import static java.lang.System.out;
 
 /**
@@ -13,6 +15,8 @@ import static java.lang.System.out;
 public final class Player implements Runnable {
 
     private final String name;
+    
+    private final String message;
 
     private final Boolean initiator;
 
@@ -21,8 +25,9 @@ public final class Player implements Runnable {
     private final BlockingQueue<String> sent;
     private final BlockingQueue<String> received;
 
-    public Player(String name, Boolean initiator, BlockingQueue<String> sent, BlockingQueue<String> received) {
+    public Player(String name, String message, Boolean initiator, BlockingQueue<String> sent, BlockingQueue<String> received) {
         this.name = name;
+        this.message = message;
         this.initiator = initiator;
         this.sent = sent;
         this.received = received;
@@ -31,10 +36,10 @@ public final class Player implements Runnable {
     /**
      * puts message to the ArrayBlockingQueue
      */
-    private void sendInitMessage() {
+    private void sendInitMessage(String message) {
         try {
-            sent.put("hey");
-            out.println(this + ": sent message '" + "hey" + "'");
+            sent.put(message);
+            out.println(this + ": sent message '" + message + "'");
         } catch (InterruptedException interrupted) {
         }
     }
@@ -48,6 +53,16 @@ public final class Player implements Runnable {
         } catch (InterruptedException interrupted) {
         }
     }
+    
+    public void registerToChatRoom(ChatService service) {
+		if(service.getInitiator() == null) {
+			service.setInitiator(this);
+			System.out.println("Player " + this + " registered...");
+ 		} else if(service.getReceiver() == null) {
+			service.setReceiver(this);
+			System.out.println("Player " + this + " registered...");
+		} 		
+	}
 
     /**
      * gets message from the ArrayBlockingQueue
@@ -74,7 +89,7 @@ public final class Player implements Runnable {
     @Override
     public void run() {
         if (initiator) {
-            sendInitMessage();
+            sendInitMessage(message);
         }
         while (true) {
             if (messageCount <= 9) {

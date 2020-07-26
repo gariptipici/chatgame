@@ -22,19 +22,19 @@ public class ChatService {
         
     }
 	
-	public void registerPlayer(Player player) {
-		if(this.initiator == null) {
-			this.initiator = player;
-			System.out.println("Player " + player + " registered...");
- 		} else if(this.receiver == null) {
-			this.receiver = player;
-			System.out.println("Player " + player + " registered...");
-		} else {
-			System.out.println("Chat is full...");
-		}
-			
-		
+	public Player getInitiator() {
+		return initiator;
 	}
-	
 
+	public Player getReceiver() {
+		return receiver;
+	}
+
+	public void setInitiator(Player initiator) {
+		this.initiator = initiator;
+	}
+
+	public void setReceiver(Player receiver) {
+		this.receiver = receiver;
+	}
 }

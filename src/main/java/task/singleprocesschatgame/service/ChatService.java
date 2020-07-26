@@ -18,6 +18,11 @@ public class ChatService {
         initiator.sendMessage(message, receiver, this);
         System.out.println("Chat in same process finished...");
     }
+	
+	public void deliver(String message, Player from, Player to) {
+		to.receiveMessage(message, from, this);
+		
+	}
 
 	public Player getInitiator() {
 		return initiator;
@@ -34,14 +39,4 @@ public class ChatService {
 	public void setReceiver(Player receiver) {
 		this.receiver = receiver;
 	}
-
-	public void deliver(String message, Player from, Player to) {
-		to.receiveMessage(message, from, this);
-		
-	}
-	
-	
-	
-	
-
 }
